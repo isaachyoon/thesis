@@ -9,6 +9,7 @@ class Compare extends Component {
 	render() {
 		return (
 			<Background>
+
 				<View style={styles.viewStyle}>
 					<View style={styles.columnStyle}>
 						<Text style={styles.textStyle}> YOU </Text>

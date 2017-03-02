@@ -39,7 +39,7 @@ recommendations() {
 					<Price />
 					<Chart />
 					<BuySell />
-					<Text style = {{ backgroundColor: 'transparent', marginLeft: 10, marginTop: 10, fontSize: 20, borderBottomWidth: 3, color: '#42f4c2' }}> Stats </Text>
+					<Text style={{ backgroundColor: 'transparent', marginLeft: 10, marginTop: 10, fontSize: 20, borderBottomWidth: 3, color: '#42f4c2' }}> Stats </Text>
 
 					<View style={viewStyle}>
 						<View style={columnStyle}>

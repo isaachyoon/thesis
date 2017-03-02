@@ -1,5 +1,4 @@
 import firebase from 'firebase';
-import axios from 'axios';
 import { Actions } from 'react-native-router-flux';
 import {
 	EMAIL_CHANGED,
@@ -10,41 +9,9 @@ import {
 	SEARCH_CHANGED,
 	SEARCH_STOCK,
 	STOCK_RESULT,
-	STOCK_SHARE_CHANGED,
-	MARKET_VALUE,
-	CASH_VALUE,
-	CHART_VIEW,
-	RECOMMENDATIONS
+	STOCK_SHARE_CHANGED
 } from './types';
-
-export const recommendations = (text) => {
-	console.log('received in action', text);
-	return {
-		type: RECOMMENDATIONS,
-		payload: text
-	};
-};
-
-export const selectChartView = (text) => {
-	return {
-		type: CHART_VIEW,
-		payload: text
-	};
-};
-
-export const updateMarketValue = (text) => {
-	return {
-		type: MARKET_VALUE,
-		payload: text
-	};
-};
-
-export const updateCashValue = (text) => {
-	return {
-		type: CASH_VALUE,
-		payload: text
-	};
-};
+import axios from 'axios';
 
 export const updateStockShare = (text) => {
 	return {
@@ -75,14 +42,16 @@ export const searchChanged = (text) => {
 };
 
 export const searchStock = ({ search }) => {
+	console.log('search from index', search);
 	return (dispatch) => {
-		axios.get('http://127.0.0.1:3000/api/stocks/'+ search +'?period=current')
+		axios.get('http://localhost:3000/api/stocks/'+ search +'?period=current')
 		.then((stockInfo) => indStockFetched(dispatch, stockInfo))
 		.catch((error) => console.log(error));
 	};
 };
 
 const indStockFetched = (dispatch, stockInfo) => {
+	console.log('stockInfo fetched', stockInfo);
 	dispatch({
 		type: STOCK_RESULT,
 		payload: stockInfo
@@ -115,5 +84,5 @@ const loginUserSuccess = (dispatch, user) => {
 		payload: user
 	});
 
-	Actions.drawer();
+	Actions.main();
 };

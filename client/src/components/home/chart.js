@@ -15,9 +15,24 @@ const { Surface, Group, Shape, } = ART;
 
 const dimensionsWindow = Dimensions.get('window');
 
-const xAccessor = (d) => { return d.date; };
+// const xAccessor = (d) => { return d.date; };
 
-const yAccessor = (d) => { return d.value === "." ? 1 : d.value ; };
+// const yAccessor = (d) => { return d.value === "." ? 1 : d.value ; };
+
+const xAccessor = (d) => {
+  return d.DATE === undefined ? d.date : d.DATE;
+};
+
+const yAccessor = (d) => {
+  if (d.VALUE !== undefined) {
+    if (d.VALUE === ".") {
+      return null;
+    }
+    return d.VALUE;
+  }
+   return d.value;
+  }
+
 
 class Chart extends Component {
 
@@ -61,7 +76,7 @@ class Chart extends Component {
        <Shape
           d={this.state.lineGraph}
           stroke="orange"
-          strokeWidth={3} />
+          strokeWidth={2} />
          </Group>
         </Surface>
       </View>
