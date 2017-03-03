@@ -106,12 +106,10 @@ const styles = {
 	textStyle: {
 		fontSize: 17,
 		color: '#42f4c2'
-		// color: 'transparent'
 
 	},
 	buttonStyle: {
 		borderWidth: 1,
-		// backgroundColor: '#42f4c2',
  		padding: 5,
 		fontSize: 17,
 		color: '#42f4c2',

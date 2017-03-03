@@ -15,14 +15,6 @@ class UserProfile extends Component {
 
 	componentWillMount() {
 		const context = this;
-		// axios.get('http://localhost:3000/api/portfolio/isaac1?period=historical')
-		// .then(response => {
-		// 	const length = response.data.length;
-		// 	const mktValue = response.data[length - 1].portfolioValue;
-		// 	context.props.updateMarketValue(mktValue);
-		// }).catch(error => {
-		// 	console.log(error);
-		// });
 
 		axios.get('http://localhost:3000/api/portfolio/isaac1?period=historical')
 		.then(response => {
